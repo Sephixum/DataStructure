@@ -1,7 +1,12 @@
 # Contents :
 ### Data sctructure code implementations
-presented by Dr.Samad Najjar from UMA(University of Mohaghegh Ardabili)
-- Table of contents
+
+<font size="5"> 
+
+- Table of contents 
+
+</font>
+
  - [ ] Arrays
  - [ ] Queue
  - [X] Stack
