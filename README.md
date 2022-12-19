@@ -7,7 +7,6 @@
 
 </font>
 
- - [ ] Arrays
  - [ ] Queue
  - [X] Stack
  - [ ] Linked lists
