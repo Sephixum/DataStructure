@@ -12,7 +12,7 @@ class Queue:
 
 
     def Enqueue(this):
-        if(this.Is_full() == True):
+        if(this.Is_full()):
             print("queue is full")
             print(this.queueArray)
         else:
@@ -23,7 +23,7 @@ class Queue:
             print(this.queueArray)
 
     def Dequeue(this):
-        if(this.Is_empty() == True):
+        if(this.Is_empty()):
             print("queue is empty")
         else:
             this.queueArray[this.front] = None
