@@ -7,6 +7,6 @@
 
 </font>
 
- - [ ] Queue
+ - [X] Queue
  - [X] Stack
- - [ ] Linked lists
+ - [X] Linked lists
