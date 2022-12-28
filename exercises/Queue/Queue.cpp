@@ -1,6 +1,7 @@
 #include <iostream>
 
 class Queue {
+
 private:
   int rear;
   int front;
