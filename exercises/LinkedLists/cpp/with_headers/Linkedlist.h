@@ -1,4 +1,5 @@
 #include "Node.h"
+#include <iostream>
 // #ifndef _X_H
 // #define _X_H
 
@@ -8,15 +9,15 @@ private:
   node *head, *tail;
   int len;
 
-  void Recursiveprint(node *head) {
-    node *tmp = head;
-    if (tmp == NULL) {
-      std::cout << '\n';
-      return;
-    }
-    std::cout << tmp->data << " ";
-    Recursiveprint(tmp->next);
-  }
+  // void Recursiveprint(node *head) {
+  //   node *tmp = head;
+  //   if (tmp == NULL) {
+  //     std::cout << '\n';
+  //     return;
+  //   }
+  //   std::cout << tmp->data << " ";
+  //   Recursiveprint(tmp->next);
+  // }
 
 public:
   Linkedlist() {
@@ -68,6 +69,23 @@ public:
     }
   }
 
+  void Remove(int data) {
+    node *current_node = this->head;
+    node *prev_node = NULL;
+    while (current_node) {
+      if (current_node->data == data) {
+        if (prev_node) {
+          prev_node->next = current_node->next;
+        } else {
+          this->head = current_node->next;
+        }
+        return;
+      }
+      prev_node = current_node;
+      current_node = current_node->next;
+    }
+  }
+
   void Reverse() {
     node *tmp = this->head;
     node *prev = NULL;
@@ -83,7 +101,14 @@ public:
 
   void Showlen() { std::cout << len << '\n'; }
 
-  void Printlist() { Recursiveprint(this->head); }
+  void Printlist() {
+    node *current_node = this->head;
+    while (current_node) {
+      std::cout << current_node->data;
+      current_node = current_node->next;
+    }
+    return;
+  }
 
   void Showhead() { std::cout << this->head->data << '\n'; }
 
