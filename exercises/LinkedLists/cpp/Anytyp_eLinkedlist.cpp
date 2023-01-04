@@ -1,18 +1,18 @@
 #include <iostream>
 
-struct node {
-  int data;
-  node *next;
-  node(int data) {
+template <class T> struct node {
+  T data;
+  node<T> *next;
+  node(T data) {
     this->data = data;
     this->next = NULL;
   }
 };
 
-class Linkedlist {
+template <class T> class Linkedlist {
 
 private:
-  node *head, *tail;
+  node<T> *head, *tail;
   int len;
 
 public:
@@ -22,8 +22,8 @@ public:
     this->len = 0;
   }
 
-  void Append(int n) {
-    node *tmp = new node(n);
+  void Append(T n) {
+    node<T> *tmp = new node<T>(n);
     // tmp->value = n;
     tmp->next = NULL;
 
@@ -38,7 +38,7 @@ public:
   }
 
   void Push(int n) {
-    node *tmp = new node(n);
+    node<T> *tmp = new node<T>(n);
 
     // tmp->value = n;
     tmp->next = this->head;
@@ -50,8 +50,8 @@ public:
     if (this->head == NULL)
       return;
 
-    node *tmp = this->head;
-    node *prev = tmp;
+    node<T> *tmp = this->head;
+    node<T> *prev = tmp;
     while (tmp->next != NULL) {
       prev = tmp;
       tmp = tmp->next;
@@ -65,19 +65,10 @@ public:
     }
   }
 
-  void Printlist() {
-    node *current = head;
-    while (current != NULL) {
-      std::cout << current->data << " ";
-      current = current->next;
-    }
-    std::cout << std::endl;
-  }
-
   void Reverse() {
-    node *tmp = this->head;
-    node *prev = NULL;
-    node *next = NULL;
+    node<T> *tmp = this->head;
+    node<T> *prev = NULL;
+    node<T> *next = NULL;
     while (tmp != NULL) {
       next = tmp->next;
       tmp->next = prev;
@@ -85,6 +76,15 @@ public:
       tmp = next;
     }
     this->head = prev;
+  }
+
+  void Printlist() {
+    node<T> *current = head;
+    while (current != NULL) {
+      std::cout << current->data << " ";
+      current = current->next;
+    }
+    std::cout << std::endl;
   }
 
   void Showlen() { std::cout << len << '\n'; }
@@ -95,7 +95,7 @@ public:
 };
 
 int main() {
-  Linkedlist a;
+  Linkedlist<int> a;
   a.Push(12);
   a.Push(13);
   a.Push(14);
