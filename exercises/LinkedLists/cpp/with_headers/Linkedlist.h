@@ -1,23 +1,14 @@
 #include "Node.h"
 #include <iostream>
-// #ifndef _X_H
-// #define _X_H
+
+#ifndef _X_H
+#define _X_H
 
 class Linkedlist {
 
 private:
   node *head, *tail;
   int len;
-
-  // void Recursiveprint(node *head) {
-  //   node *tmp = head;
-  //   if (tmp == NULL) {
-  //     std::cout << '\n';
-  //     return;
-  //   }
-  //   std::cout << tmp->data << " ";
-  //   Recursiveprint(tmp->next);
-  // }
 
 public:
   Linkedlist() {
@@ -104,7 +95,7 @@ public:
   void Printlist() {
     node *current_node = this->head;
     while (current_node) {
-      std::cout << current_node->data;
+      std::cout << current_node->data << " ";
       current_node = current_node->next;
     }
     return;
@@ -115,4 +106,4 @@ public:
   void Showtail() { std::cout << this->tail->data << '\n'; }
 };
 
-// #endif
+#endif
