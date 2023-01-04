@@ -1,6 +1,7 @@
 // This code has been written on Arch Linux operating system
 // using Neovim Text Editor
 //----------------------------------------------------
+#include "stack.h"
 #include <iostream>
 #define SIZE 50
 
@@ -8,42 +9,6 @@
 int prio(char character);
 bool checkOp(char input);
 // descriptions explaind on where its defined
-
-// a stack-like class
-// that returns an array object with
-// stack behaviors
-class MyStack {
-  // our array
-  char stackArray[SIZE];
-  // our pointer
-  int topOfStack;
-
-public:
-  MyStack() { topOfStack = 0; }
-  //------methods----
-  void push(char);
-  void pop();
-  char top();
-  char empty();
-};
-
-void MyStack::push(char character) {
-  if (topOfStack < SIZE) {
-    stackArray[++topOfStack] = character;
-  } else
-    std::cout << "Stack overflow ... ";
-}
-
-void MyStack::pop() { topOfStack--; }
-
-char MyStack::top() { return stackArray[topOfStack]; }
-
-char MyStack::empty() {
-  if (topOfStack == 0)
-    return true;
-  else
-    return false;
-}
 
 // converts to Postfix
 std::string inToPost(std::string input) {

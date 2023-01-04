@@ -1,34 +1,15 @@
 # This code has been written on Arch Linux operating system
 # using Neovim Text Editor
 #------------------------------------------------------------------------
-# Stack was studied from "https://www.geeksforgeeks.org/stack-in-cpp-stl/"
-# Basic implementation of CPP-like Stack
-class Stack:
-    def __init__(self) :
-        self.elements = []
-
-    def push(self, item):
-        self.elements.append(item)
-
-    def pop(self):
-        self.elements.pop()
-
-    def size(self):
-        return len(self.elements)
-
-    def empty(self):
-        return True if self.size() == 0 else False
-
-    def top(self):
-        return self.elements[len(self.elements)-1]
+from stack import Stack
 
 # Function to convert infix To postfix
-def infixToPostfix(input):
+def infixToPostfix(exp):
     stack = Stack()
     result = ""
 
-    # Traverse every element in input string
-    for char in input:
+    # Traverse every element in exp string
+    for char in exp:
         scannedChar = char
 
         # Checking for operands
@@ -68,5 +49,9 @@ def prio(character):
 #-------------------------------------------------------------------------------------
 
 # Main code
-input = input()
-print(infixToPostfix(input))
+def main():
+    exp = input()
+    print(infixToPostfix(exp))
+
+if __name__ == "__main__":
+    main()
